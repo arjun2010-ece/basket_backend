@@ -1,0 +1,30 @@
+{
+  "name": "market",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "db:all": "npm run db:migrate:undo && npm run db:migrate && npm run db:seed",
+    "db:migrate": "set NODE_ENV=development&&npm run m:sequelize db:migrate",
+    "db:migrate:undo": "npm run m:sequelize db:migrate:undo:all",
+    "db:seed": "npm run m:sequelize db:seed:all",
+    "db:seed:undo": "npm run m:sequelize db:seed:undo:all",
+    "m:sequelize": "./node_modules/.bin/sequelize --config database/config.js --models-path database/models/ --migrations-path database/migrations/ --seeders-path database/seeders"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.1.0",
+    "nodemon": "^2.0.4",
+    "sequelize": "^6.3.4",
+    "sequelize-cli": "^6.2.0",
+    "uuidv1": "^1.6.14"
+  }
+}
